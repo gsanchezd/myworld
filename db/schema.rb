@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170715225134) do
+ActiveRecord::Schema.define(version: 20170715231340) do
+
+  create_table "add_name_and_profile_to_users", force: :cascade do |t|
+    t.string "name"
+    t.text "profile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
@@ -47,6 +54,8 @@ ActiveRecord::Schema.define(version: 20170715225134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.integer "company_id"
+    t.index ["company_id"], name: "index_employees_on_company_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
