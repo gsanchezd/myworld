@@ -1,6 +1,8 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :iframe_view, only: [:index, :show, :apply]
   before_action :authenticate_user!, only: :apply
+
 
   # GET /jobs
   # GET /jobs.json
@@ -12,6 +14,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     render plain: "Postulando a #{@job.description}"
   end
+
   # GET /jobs/1
   # GET /jobs/1.json
   def show
