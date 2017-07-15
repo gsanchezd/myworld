@@ -5,7 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Status</th>
       <th>Description</th>
       <th>City</th>
       <th colspan="3"></th>
@@ -15,12 +14,11 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.status %></td>
         <td><%= job.description %></td>
-        <td><%= job.city %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= job.city.try(:name) %></td>
+        <td><%= link_to 'Postular', apply_job_path(job) %></td>
+        <!-- <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
