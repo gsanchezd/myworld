@@ -3,14 +3,12 @@ Rails.application.routes.draw do
     member do
       get 'apply'
     end
+    resources :job_applications, as: :applications
   end
 
-  Rails.application.routes.draw do
-    devise_for :users, controllers: {
-      registrations: 'users/registrations'
-    }
-  end
-
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
   root to: 'jobs#index'
 

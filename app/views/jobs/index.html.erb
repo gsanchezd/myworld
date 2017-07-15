@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Jobs</h1>
 
 <table>
@@ -20,7 +18,12 @@
         <td><img src="<%= job.company.try(:photo) %>" width="128" height="96"></td>
 
         <td><%= job.city.try(:name) %></td>
-        <td><%= link_to 'Postular', apply_job_path(job) %></td>
+        <td>
+          <% if @my_applications.include?(job.id) %>
+            Postulando
+          <% else %>
+            <%= link_to 'Postular', job_applications_path(job), method: :post %></td>
+          <% end %>
         <!-- <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
