@@ -5,7 +5,13 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  Rails.application.routes.draw do
+    devise_for :users, controllers: {
+      registrations: 'users/registrations'
+    }
+  end
+
+
   root to: 'jobs#index'
 
 

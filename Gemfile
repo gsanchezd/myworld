@@ -12,7 +12,9 @@ gem 'devise', git: 'https://github.com/plataformatec/devise'
 gem 'jquery-rails'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -51,6 +53,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'railroady'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
