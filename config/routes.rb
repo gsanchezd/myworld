@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+
   resources :jobs do
     member do
       get 'apply'
     end
   end
+
+  devise_for :employees, controllers: {
+    registrations: 'employees/registrations'
+  }
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
