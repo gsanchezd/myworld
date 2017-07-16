@@ -1,3 +1,44 @@
 // Place all the styles related to the companies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.button-width{
+  width: 100%;
+}
+input:focus:not([type]):not([readonly]) + label,
+input[type="text"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="password"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="email"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="url"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="time"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="date"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="datetime"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="datetime-local"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="tel"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="number"]:focus:not(.browser-default):not([readonly]) + label,
+input[type="search"]:focus:not(.browser-default):not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label{
+  color: #3f51b5;
+}
+
+input:focus:not([type]):not([readonly]),
+input[type="text"]:focus:not(.browser-default):not([readonly]),
+input[type="password"]:focus:not(.browser-default):not([readonly]),
+input[type="email"]:focus:not(.browser-default):not([readonly]),
+input[type="url"]:focus:not(.browser-default):not([readonly]),
+input[type="time"]:focus:not(.browser-default):not([readonly]),
+input[type="date"]:focus:not(.browser-default):not([readonly]),
+input[type="datetime"]:focus:not(.browser-default):not([readonly]),
+input[type="datetime-local"]:focus:not(.browser-default):not([readonly]),
+input[type="tel"]:focus:not(.browser-default):not([readonly]),
+input[type="number"]:focus:not(.browser-default):not([readonly]),
+input[type="search"]:focus:not(.browser-default):not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #3f51b5;
+  box-shadow: 0 1px 0 0 #3f51b5;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+  color: #3f51b5;
+}
+

@@ -11,14 +11,18 @@ h3 Postulaciones
 
 table.striped
   tr
-    th Datos
+    th Nombre
+    th Email
+    th Perfil postulante
     th Estado
     th Opciones
   - @job.job_applications.each do |ja|
     tr
       td
         = ja.user.name
+      td
         = ja.user.email
+      td= link_to "Perfil", "javascript:void(0)"
       td= ja.status
       - unless ja.approved?
         td= link_to "Aceptar", approve_company_job_application_path(@job.company, @job, ja)

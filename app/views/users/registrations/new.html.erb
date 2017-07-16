@@ -15,21 +15,20 @@
   </div>
 
   <div class="input-field">
-    <%= f.text_area :profile %>
+    <%= f.text_area :profile, class: "materialize-textarea" %>
     <%= f.label :profile, "Perfil" %><br />
   </div>
 
   <div class="input-field">
-    <%= f.select :city, City.all.map{|c| ["#{c.name} - #{c.country.name}", c.id]}, {}, class:"select-dropdown" %>
-    <%= f.label :profile, "Perfil" %><br />
+    <%= f.select :city, City.all.map{|c| ["#{c.name} - #{c.country.name}", c.id]}, {prompt: "Seleccione ciudad"}, class:"select-dropdown" %>
+    <%= f.label :city, "Ciudad" %><br />
   </div>
 
+
   <div class="input-field">
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+
     <%= f.password_field :password, autocomplete: "off" %>
-    <%= f.label :password %>
+    <%= f.label :password, "Password (#{@minimum_password_length} characters minimum)" %>
   </div>
 
   <div class="input-field">
@@ -37,9 +36,12 @@
     <%= f.label :password_confirmation %><br />
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="input-field">
+    <button class="btn waves-effect waves-light red" type="submit" name="action">Enviar
+      <i class="material-icons right">send</i>
+    </button>
   </div>
+
 <% end %>
 
 <%= render "users/shared/links" %>
