@@ -1,7 +1,7 @@
 <h2>Trabajos de la compañía <%= @company.name %></h2>
 
 <% @jobs.each do |job| %>
-  <%= render 'job', local: job %>
+  <%= render partial: 'job', locals: {job: job} %>
 <% end %>
 
 <br>

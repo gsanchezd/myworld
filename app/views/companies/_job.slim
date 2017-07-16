@@ -1,11 +1,13 @@
 .col.s4.m4.l4
   .card
     .card-image
-      img src= @job.company.try(:photo)
-      span.card-title Card Title
+      a href= job_path(job)
+        img src= job.company.try(:photo)
+      span.card-title= job.company.try(:name)
     .card-content
       p
-        | I am a very simple card. I am good at containing small bits of information.
-        | I am convenient because I require little markup to use effectively.
+        = job.description
     .card-action
-      a href="#"  This is a link
+      =link_to "Ver", job
+      a href="#" Editar
+      a href="#" Eliminar

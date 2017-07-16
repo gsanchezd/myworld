@@ -1,15 +1,24 @@
-h2= @job.description
+.card.horizontal
+  .card-image
+    =image_tag(@job.company.photo)
+  .card-stacked
+    .card-content
+      h4= @job.name
+      p= @job.description
 
-| Postulaciones
 
-table
+h3 Postulaciones
+
+table.striped
   tr
-    th Nombre
+    th Datos
     th Estado
     th Opciones
   - @job.job_applications.each do |ja|
     tr
-      td= ja.user.name
+      td
+        = ja.user.name
+        = ja.user.email
       td= ja.status
       - unless ja.approved?
         td= link_to "Aceptar", approve_company_job_application_path(@job.company, @job, ja)
