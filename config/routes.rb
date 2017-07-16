@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :company do
-    resources :jobs
+    resources :jobs do
+      resources :job_applications, as: :applications, only: [] do
+        member { get 'approve' }
+      end
+    end
   end
 
   devise_for :employees, controllers: {
