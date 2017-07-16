@@ -12,13 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170715231340) do
 
-  create_table "add_name_and_profile_to_users", force: :cascade do |t|
-    t.string "name"
-    t.text "profile"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cities", force: :cascade do |t|
     t.string "name"
     t.integer "country_id"
