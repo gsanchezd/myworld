@@ -1,0 +1,9 @@
+<h2>Trabajos de la compañía <%= @company.name %></h2>
+
+<% @jobs.each do |job| %>
+  <%= render 'job', local: job %>
+<% end %>
+
+<br>
+
+<%= link_to 'New Job', new_job_path %>

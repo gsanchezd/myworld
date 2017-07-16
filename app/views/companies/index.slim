@@ -1,0 +1,12 @@
+.row
+  - @companies.each do |company|
+    .col.m4.s4
+      .card
+        .card-image
+          img src="images/sample-1.jpg" /
+          span.card-title Card Title
+        .card-content
+          p= company.name
+          p= "#{company.jobs.count} Trabajos disponibles" if company.jobs.any?
+        .card-action
+          =link_to "Ver", company
