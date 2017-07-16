@@ -1,12 +1,11 @@
 class JobApplicationsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_employee!, only: [:approve]
 
   def create
     @job = Job.find(params[:job_id])
-    JobApplication.create(user:current_user, job: @job)
-
+    JobApplication.create(user: current_user, job: @job)
     redirect_to jobs_path, notice: 'Has postulado'
-
   end
 
   def approve
