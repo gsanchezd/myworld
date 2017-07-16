@@ -4,7 +4,7 @@ class JobApplicationsController < ApplicationController
   def create
     @job = Job.find(params[:job_id])
     JobApplication.create(user:current_user, job: @job)
-    redirect_to 'jobs#index', notice: 'Has postulado'
+    redirect_to jobs_path, notice: 'Has postulado'
   end
 
   def approve

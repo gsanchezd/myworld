@@ -1,10 +1,8 @@
 <h1>Jobs</h1>
-<%= signed_in? %>
-<%= usuario_c %>
 <table>
   <thead>
     <tr>
-      <th>Description</th>
+      <th>Name, Description</th>
       <th>Compañía</th>
       <th>City</th>
       <th colspan="3"></th>
@@ -14,7 +12,10 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.description %></td>
+        <td>
+            <h5> <%= job.name %> </h5>
+            <%= job.description %>
+        </td>
         <td><%= job.company.try(:name) %></td>
         <td><img src="<%= job.company.try(:photo) %>" width="128" height="96"></td>
 

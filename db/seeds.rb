@@ -17,8 +17,16 @@ Country.create!(name: 'España')
 ci = City.create!(name: 'Londres', country: co)
 
 company = Company.create(photo: 'https://fintech.nxtplabs.com/wp-content/uploads/2017/02/IMG_1667-e1487356705895.jpg', name: 'BCILAbs')
-Employee.create(name: 'Gonzalo', email:'gonzalo@bcilabs.com', password: '12345678', company: company)
+Employee.create(
+  name: 'Gonzalo',
+  email: 'gonzalo@bcilabs.com',
+  password: '12345678',
+  company: company)
 
 10.times do |i|
-  Job.create!(description: 'Trabajo genial para inmigrantes', city: ci, company: company)
+  Job.create!(
+    name: Faker::Job.title,
+    description: 'Trabajo genial para inmigrantes',
+    city: ci,
+    company: company)
 end
