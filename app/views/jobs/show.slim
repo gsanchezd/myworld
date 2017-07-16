@@ -1,0 +1,15 @@
+h2= @job.description
+
+| Postulaciones
+
+table
+  tr
+    th Nombre
+    th Estado
+    th Opciones
+  - @job.job_applications.each do |ja|
+    tr
+      td= ja.user.name
+      td= ja.status
+      - unless ja.approved?
+        td= link_to "Aceptar", approve_company_job_application_path(@job.company, @job, ja)
