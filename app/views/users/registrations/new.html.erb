@@ -20,8 +20,8 @@
   </div>
 
   <div class="input-field">
-    <%= f.select :city, City.all.map{|c| ["#{c.name} - #{c.country.name}", c.id]}, {prompt: "Seleccione ciudad"}, class:"select-dropdown" %>
-    <%= f.label :city, "Ciudad" %><br />
+    <%= f.select :city_id, City.all.map{|c| ["#{c.name} - #{c.country.name}", c.id]}, {prompt: "Seleccione ciudad"}, class:"select-dropdown" %>
+    <%= f.label :city_id, "Ciudad" %><br />
   </div>
 
 

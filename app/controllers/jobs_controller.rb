@@ -11,7 +11,7 @@ class JobsController < ApplicationController
     @jobs = Job.includes(:city, :company)
     @jobs = @jobs.where('name like ?', "%#{@q}%") if @q.present?
 
-    @my_applications = JobApplication.pluck(:job_id) || []
+    @my_applications = user_signed_in? ? JobApplication.where(user: current_user) : []
   end
 
   def apply

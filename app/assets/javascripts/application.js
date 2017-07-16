@@ -20,4 +20,10 @@ $(document).on('turbolinks:load', function() {
 
   $('select').material_select();
 
+  $('.modal').modal();
+  $('#modal1').modal('open');
+
+  $('#modal1').modal('close');
+
+
 });

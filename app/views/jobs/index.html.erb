@@ -22,13 +22,13 @@
 
         <td><%= job.city.try(:name) %></td>
         <td>
-          <% if @my_applications.include?(job.id) %>
+          <% if @my_applications.any?{|a| a.job_id == job.id} %>
             Postulando
           <% else %>
             <%= link_to 'Postular', job_applications_path(job), method: :post %></td>
           <% end %>
-        <!-- <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <!-- <td><%#= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
