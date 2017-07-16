@@ -6,30 +6,31 @@
       h4= @job.name
       p= @job.description
 
+- if employee_signed_in?
 
-h3 Postulaciones
+  h3 Postulaciones
 
-table.striped
-  tr
-    th colspan=2 Datos
-    th Perfil postulante
-    th Estado
-    th Opciones
-  - @job.job_applications.each do |ja|
+  table.striped
     tr
-      td= ja.user.name
-      td= ja.user.email
-      td= link_to "Perfil", "#modal#{ja.user.id}", class:"waves-effect waves-light btn"
-      td= ja.status
-      - unless ja.approved?
-        td= link_to "Aceptar", approve_company_job_application_path(@job.company, @job, ja)
-      div id="modal#{ja.user.id}" class="modal bottom-sheet"
-        div class="modal-content"
-          h4= ja.user.name
-          p= ja.user.profile
-        div class="modal-footer"
-          - unless ja.approved?
-            = link_to "Aceptar Postulación", approve_company_job_application_path(@job.company, @job, ja), class:"modal-action modal-close waves-effect waves-green btn-flat"
+      th colspan=2 Datos
+      th Perfil postulante
+      th Estado
+      th Opciones
+    - @job.job_applications.each do |ja|
+      tr
+        td= ja.user.name
+        td= ja.user.email
+        td= link_to "Perfil", "#modal#{ja.user.id}", class:"waves-effect waves-light btn"
+        td= ja.status
+        - unless ja.approved?
+          td= link_to "Aceptar", approve_company_job_application_path(@job.company, @job, ja)
+        div id="modal#{ja.user.id}" class="modal bottom-sheet"
+          div class="modal-content"
+            h4= ja.user.name
+            p= ja.user.profile
+          div class="modal-footer"
+            - unless ja.approved?
+              = link_to "Aceptar Postulación", approve_company_job_application_path(@job.company, @job, ja), class:"modal-action modal-close waves-effect waves-green btn-flat"
 
 
 

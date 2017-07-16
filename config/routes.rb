@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'landings/index'
+
   get 'company/show'
 
   resources :jobs do

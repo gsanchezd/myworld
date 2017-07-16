@@ -1,7 +1,7 @@
 class JobApplication < ApplicationRecord
   belongs_to :user
   belongs_to :job
-  validates_uniqueness_of(:user_id, :scope => :job_id)
+  validates_uniqueness_of(:user_id, scope: :job_id)
 
   before_save :default_status
   enum status: [:pending, :approved, :rejected]
