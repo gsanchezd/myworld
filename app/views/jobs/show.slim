@@ -1,0 +1,10 @@
+h2= @job.description
+
+| Postulaciones
+
+table
+  tr
+    th Nombre
+  - @job.job_applications.each do |ja|
+    tr
+      td= ja.user.name

@@ -1,5 +1,7 @@
 h1 Postulaciones
-- @company.jobs.each do |j|
+- @company.jobs.each do |job|
   .card-panel
-    p= j.description
-    p= "#{j.job_applications.count} Postulaciones"
+    p= job.description
+    p
+      = "#{job.job_applications.count} Postulaciones"
+      = link_to "Ver postulaciones", [@company, job] if job.job_applications.any?

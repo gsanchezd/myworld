@@ -10,8 +10,10 @@ Rails.application.routes.draw do
     resources :job_applications, as: :applications
   end
 
-  resources :company
-  
+  resources :company do
+    resources :jobs
+  end
+
   devise_for :employees, controllers: {
     registrations: 'employees/registrations',
     sessions: 'employees/sessions'
