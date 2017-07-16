@@ -1,7 +1,13 @@
 h1 Postulaciones
 - @company.jobs.each do |job|
-  .card-panel
-    p= job.description
-    p
-      = "#{job.job_applications.count} Postulaciones"
-      = link_to "Ver postulaciones", [@company, job] if job.job_applications.any?
+  .card.horizontal
+    .card-image
+      = image_tag @company.photo, size: "100x100"
+
+    .card-stacked
+      .card-content
+        h5= job.name
+        p= job.description
+        p = "#{job.job_applications.count} Postulaciones"
+      .card-action
+        p = link_to "Ver postulaciones", [@company, job] if job.job_applications.any?

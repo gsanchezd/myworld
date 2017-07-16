@@ -7,7 +7,10 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    @q = params[:q]
     @jobs = Job.includes(:city, :company)
+    @jobs = @jobs.where('name like ?', "%#{@q}%") if @q.present?
+
     @my_applications = JobApplication.pluck(:job_id) || []
   end
 
