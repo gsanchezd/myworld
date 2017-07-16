@@ -7,14 +7,14 @@ class Employee < ApplicationRecord
 
   belongs_to :company, optional: true
 
-  validate :company_exist
+  validate :company_exist, on: :create
 
   def company_exist
-    company = Company.find_by(name: self.company_employee)
+    company = Company.find_by(name: company_employee)
     if company.present?
       errors[:base] << 'La empresa ingresada ya existe'
     else
-      company = Company.create(name: self.company_employee)
+      company = Company.create(name: company_employee)
       self.company = company
     end
   end
