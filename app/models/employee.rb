@@ -4,5 +4,5 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :company
+  belongs_to :company, optional: true
 end

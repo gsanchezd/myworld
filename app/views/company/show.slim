@@ -1,0 +1,5 @@
+h1 Postulaciones
+- @company.jobs.each do |j|
+  .card-panel
+    p= j.description
+    p= "#{j.job_applications.count} Postulaciones"
