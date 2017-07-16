@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :job_applications, as: :applications
   end
 
-  resources :company do
+  resources :companies do
     resources :jobs do
       resources :job_applications, as: :applications, only: [] do
         member { get 'approve' }

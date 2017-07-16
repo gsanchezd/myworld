@@ -4,6 +4,8 @@
     <title>Myworld</title>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,8 +16,8 @@
 
   <body>
     <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
+      <div class="nav-wrapper indigo">
+        <a href="#" class="brand-logo center">MyWorld</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <% if user_signed_in? %>
             <li> Hola <%= current_user.name %></li>
@@ -29,6 +31,19 @@
           <% end %>
         </ul>
       </div>
+      <div class="nav-wrapper indigo">
+        <div class="row">
+          <div class="col l6 offset-l3">
+            <form>
+                   <div class="input-field">
+                     <input id="search" type="search" name="q" required>
+                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                     <i class="material-icons">close</i>
+                   </div>
+                 </form>
+            </div>
+          </div>
+      </div>
     </nav>
 
     <div> <%= notice %> </div>
@@ -37,5 +52,39 @@
     <div class="container">
       <%= yield %>
     </div>
+
+    <footer class="page-footer indigo lighten-2">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <h5 class="white-text">Links de ayuda</h5>
+                  <p class="grey-text text-lighten-4">
+                    <ul>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                      <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                  </p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links de ayuda</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright indigo">
+              <div class="container">
+              © 2017 Proyecto Para Ganar AngelHack
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+              </div>
+            </div>
+          </footer>
+
   </body>
 </html>
