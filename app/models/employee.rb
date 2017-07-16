@@ -6,7 +6,6 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company, optional: true
-
   validate :company_exist, on: :create
 
   def company_exist
@@ -18,5 +17,4 @@ class Employee < ApplicationRecord
       self.company = company
     end
   end
-
 end
